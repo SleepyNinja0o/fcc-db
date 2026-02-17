@@ -34,6 +34,12 @@ downloaded more recently than the latest weekly to feed to the importer.
 sudo apt install 7zip perl libdbi-perl libdbd-sqlite3-perl libconfig-inifiles-perl
 ```
 
+Verify Perl DBI and DBD modules:
+```
+perl -MDBI -e 'print $DBI::VERSION, "\n"'
+perl -MDBD::SQLite -e 'print $DBD::SQLite::VERSION, "\n"'
+```
+
 ## First-use prep
 
 uls-fetch.sh is what downloads ULS archives, both initially and to check for
@@ -50,6 +56,14 @@ Optionally, copy the `*.ini.sample` files to `*.ini` names and edit paths to
 taste. Note that schema/index files will be relative to the invoker's
 directory, so absolute paths may be desired if invoked elsewhere. Licensing
 & Applicaiton database must be unique, as they function independently.
+
+## Creating directories
+```
+mkdir -p /usr/local/var/uls
+chmod 775 /usr/local/var/uls
+mkdir -p /usr/local/var/db
+chmod 775 /usr/local/var/db
+```
 
 ## Fetching ULS daily files
 
