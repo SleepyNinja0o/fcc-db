@@ -59,8 +59,11 @@ directory, so absolute paths may be desired if invoked elsewhere. Licensing
 
 ## Creating directories
 ```
+mkdir -p /var/log/uls
+
 mkdir -p /usr/local/var/uls
 chmod 775 /usr/local/var/uls
+
 mkdir -p /usr/local/var/db
 chmod 775 /usr/local/var/db
 ```
