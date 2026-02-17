@@ -4,6 +4,10 @@
 # This file is part of the fcc-db ULS Amateur import project.
 # Updated 2026 for HTTPS support and robust header parsing.
 
+ts=$(date +%s)
+readable=$(date -d "@$ts" +"%Y-%m-%d %r")
+echo "***** ULS fetch script started at: $readable *****"
+
 warn() { printf "%s\n" "$@" >&2; }
 die() { warn "$@"; exit 1; }
 
