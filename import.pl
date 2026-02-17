@@ -8,6 +8,7 @@
 
 use strict;
 use warnings;
+use POSIX qw(strftime);
 use Getopt::Long ();
 use DBI ();
 Getopt::Long::Configure(qw[ bundling ]);
@@ -106,6 +107,11 @@ sub fatal {
 }
 
 sub main {
+	# Get the current Unix timestamp and convert to human readable
+	my $ts = time();
+	my $readable = strftime("%Y-%m-%d %r", localtime($ts));
+	print "***** ULS import started at: $readable *****\n";
+
 	my $argv = shift; # \@ARGV
 	my $Opts = parse_options( $argv );
 

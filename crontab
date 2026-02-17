@@ -1,17 +1,17 @@
 # Add the following to a crontab to run uls-fetch.sh script on a schedule
 
 # Execute uls-fetch.sh to pull down daily and weekly db files
-0 12 * * SUN-FRI /root/fcc-db/uls-fetch.sh -b /usr/local/var/uls/ >> /var/log/uls/uls-fetch-sun-fri.log
-0 20 * * SAT /root/fcc-db/uls-fetch.sh -b /usr/local/var/uls/ >> /var/log/uls/uls-fetch-sat.log
+0 12 * * SUN-FRI /root/.git/fcc-db/uls-fetch.sh -b /usr/local/var/uls/ >> /var/log/uls/uls-fetch-sun-fri.log 2>&1
+0 20 * * SAT /root/.git/fcc-db/uls-fetch.sh -b /usr/local/var/uls/ >> /var/log/uls/uls-fetch-sat.log 2>&1
 
 # Execute import.pl to import new DAILY APPLICATIONS FCC db entries into local database
-30 12 * * SUN-FRI /bin/bash -c '/root/fcc-db/import.pl -c conf-app.ini /usr/local/var/uls/daily_a_$(date +\%a | tr A-Z a-z).zip'
-30 20 * * SAT /bin/bash -c '/root/fcc-db/import.pl -c conf-app.ini /usr/local/var/uls/daily_a_$(date +\%a | tr A-Z a-z).zip'
+30 12 * * SUN-FRI /bin/bash -c '/root/.git/fcc-db/import.pl -c /root/.git/fcc-db/conf-app.ini /usr/local/var/uls/daily_a_$(date +\%a | tr A-Z a-z).zip' >> /var/log/uls/uls-import-d-a-sun-fri.log 2>&1
+30 20 * * SAT /bin/bash -c '/root/.git/fcc-db/import.pl -c /root/.git/fcc-db/conf-app.ini /usr/local/var/uls/daily_a_$(date +\%a | tr A-Z a-z).zip' >> /var/log/uls/uls-import-d-a-sat.log 2>&1
 
 # Execute import.pl to import new DAILY LICENSE FCC db entries into local database
-30 12 * * SUN-FRI /bin/bash -c '/root/fcc-db/import.pl -c conf-lic.ini /usr/local/var/uls/daily_l_$(date +\%a | tr A-Z a-z).zip'
-30 20 * * SAT /bin/bash -c '/root/fcc-db/import.pl -c conf-lic.ini /usr/local/var/uls/daily_l_$(date +\%a | tr A-Z a-z).zip'
+30 12 * * SUN-FRI /bin/bash -c '/root/.git/fcc-db/import.pl -c /root/.git/fcc-db/conf-lic.ini /usr/local/var/uls/daily_l_$(date +\%a | tr A-Z a-z).zip' >> /var/log/uls/uls-import-d-l-sun-fri.log 2>&1
+30 20 * * SAT /bin/bash -c '/root/.git/fcc-db/import.pl -c /root/.git/fcc-db/conf-lic.ini /usr/local/var/uls/daily_l_$(date +\%a | tr A-Z a-z).zip' >> /var/log/uls/uls-import-d-l-sat.log 2>&1
 
 # Execute import.pl to import WEEKLY FCC db entries into local database
-30 12 * * SAT /root/fcc-db/import.pl -c /root/fcc-db/conf-app.ini /usr/local/var/uls/weekly_a.zip
-30 12 * * SUN /root/fcc-db/import.pl -c /root/fcc-db/conf-lic.ini /usr/local/var/uls/weekly_l.zip
+30 12 * * SAT /root/fcc-db/import.pl -c /root/.git/fcc-db/conf-app.ini /usr/local/var/uls/weekly_a.zip >> /var/log/uls/uls-import-w-a-sat.log 2>&1
+30 12 * * SUN /root/fcc-db/import.pl -c /root/.git/fcc-db/conf-lic.ini /usr/local/var/uls/weekly_l.zip >> /var/log/uls/uls-import-w-l-sun.log 2>&1
