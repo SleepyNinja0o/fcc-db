@@ -28,6 +28,11 @@ downloaded more recently than the latest weekly to feed to the importer.
 * Perl 5, and the following perl-libs (via your distro or CPAN)
 * DBI
 * DBD::SQLite
+* Config::IniFiles
+
+```
+sudo apt install 7zip perl libdbi-perl libdbd-sqlite3-perl libconfig-inifiles-perl
+```
 
 ## First-use prep
 
