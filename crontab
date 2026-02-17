@@ -1,0 +1,5 @@
+# Add the following to a crontab to run uls-fetch.sh script on a schedule
+
+# Execute uls-fetch.sh to pull down daily and weekly db files
+0 10 * * SUN-FRI /root/fcc-db/uls-fetch.sh -b /usr/local/var/uls/ >> /var/log/uls/uls-fetch-sun-fri.log
+0 20 * * SAT /root/fcc-db/uls-fetch.sh -b /usr/local/var/uls/ >> /var/log/uls/uls-fetch-sat.log
