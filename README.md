@@ -57,6 +57,13 @@ taste. Note that schema/index files will be relative to the invoker's
 directory, so absolute paths may be desired if invoked elsewhere. Licensing
 & Applicaiton database must be unique, as they function independently.
 
+## Clone GitHub repo
+If you change the location of the fcc-db git repo, you will also need to change the location in the config files and crontab as well
+```
+cd /root/
+git clone https://github.com/SleepyNinja0o/fcc-db.git
+```
+
 ## Creating directories
 ```
 mkdir -p /var/log/uls
