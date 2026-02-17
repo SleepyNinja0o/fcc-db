@@ -106,6 +106,10 @@ to avoid creating an empty dataset, meaning only daily changes are applied.
 ```
 ./import.pl -c conf-lic.ini /usr/local/var/uls/daily_l_{sun,mon}.zip
 ./import.pl -c conf-app.ini /usr/local/var/uls/daily_a_{sat,sun,mon}.zip
+
+#Import all at once
+./import.pl -c conf-lic.ini /usr/local/var/uls/daily_l_{sun,mon,tue,wed,thu,fri,sat}.zip
+./import.pl -c conf-app.ini /usr/local/var/uls/daily_a_{sun,mon,tue,wed,thu,fri,sat}.zip
 ```
 
 Typical ULS Publish Schedule
