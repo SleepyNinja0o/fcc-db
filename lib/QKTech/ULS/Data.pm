@@ -241,15 +241,16 @@ sub query_HS {
 	) or die "HS dates failed: " . $table->error;
 
 	$table->addQuery(
-		fields => [ 2, 4..6 ],
+		fields => [ 2..6 ],
 		sql => qq[
 			INSERT INTO t_hs (
 				sys_id,
+				uls_fileno,
 				callsign,
 				log_date,
 				code
 			)
-			VALUES (?,?,?,?)
+			VALUES (?,?,?,?,?)
 		],
 	) or die "HS sth failed: " . $table->error;
 }
