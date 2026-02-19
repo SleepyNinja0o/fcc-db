@@ -55,11 +55,10 @@ CREATE TABLE t_en (
 );
 
 CREATE TABLE t_hs (
-	sys_id INT,
-	uls_fileno TEXT,
-	callsign TEXT,
-	log_date TEXT,
-	code TEXT,
-	
-	PRIMARY KEY (sys_id, uls_fileno, code)
+        id INTEGER PRIMARY KEY,
+        sys_id INT,
+        uls_fileno TEXT,
+        callsign TEXT,
+        log_date TEXT,
+        code TEXT
 );
